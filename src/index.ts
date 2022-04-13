@@ -16,24 +16,25 @@ async function bake() {
     console.log(`${counter} - Mix ingredients`);
     showMessage(`${counter} - Mix ingredients`, title, true);
 
-    const baking = new Promise((resolve, reject) => {
-        setTimeout(() => {
+    await new Promise((resolve, reject) => {
+        function magic() {
             counter++;
-            console.log(`${counter} - Bake at 325 degrees for 10 min`);
+            console.log(`${counter} - Bake at 325 degrees for 10 minutes`);
             showMessage(
-                `${counter} - Bake at 325 degrees for 10 min`,
+                `${counter} - Bake at 325 degrees for 10 minutes`,
                 title,
                 true,
             );
             resolve(true);
-        }, 1000);
+        }
+
+        setTimeout(magic, 3000);
     });
 
-    await baking;
-
     counter++;
-    console.log(`${counter} - Eat ingredients`);
+    console.log(`${counter} - Eat cookies`);
     showMessage(`${counter} - Eat cookies`, title, true);
+
     console.groupEnd();
 }
 
