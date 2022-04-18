@@ -26,3 +26,12 @@ export function showMessage(text = '', title = 'Info', append = false) {
     setText(element, '.message-header', title);
     setText(element, '.message-body', newText);
 }
+
+function cloneElementsFromTemplate(templateName: string) {
+    const template: HTMLTemplateElement = document.getElementById(templateName);
+    return document.importNode(template.content, true);
+}
+
+export function showFetching(selector: string) {
+    const progressClone = cloneElementsFromTemplate('progress-template');
+}
